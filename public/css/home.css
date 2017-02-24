@@ -1,0 +1,14 @@
+.line {
+	border-bottom:solid 1px grey;
+	box-shadow:1px 1px 1px black;
+	padding:10px;
+	magrin-top:5px;
+}
+
+.line_check {
+	float:right;
+}
+
+.line_name {
+	float:left;
+}

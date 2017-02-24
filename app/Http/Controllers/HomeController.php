@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Catalogs;
+//use App\Categorie;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+		$cats = Catalogs::where('showhide', 'show')->get();
+        return view('home')->with('cats', $cats);
     }
 }
