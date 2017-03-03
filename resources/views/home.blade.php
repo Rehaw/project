@@ -2,7 +2,7 @@
 
 @section('styles')
 	@parent
-	<link href='/css/home.css' rel="stylesheet">
+	<link href="{{asset('/css/home.css')}}" rel="stylesheet">
 @stop
 
 @section('content')
@@ -11,17 +11,29 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">Dashboard</div>
-
                 <div class="panel-body">
-                    @foreach($cats as $one)
-					<div class='line'>
-						<div class='line_name'>{{$one->name}}</div>
+					<form class="subscribe" action="{{asset('home/subscribe')}}" method="post">
+						{{csrf_field()}}
+						@foreach($cats as $one)
+						<div class='line'>
+							<div class='line_name'>{{$one->name}}</div>
 							<div class='line_check'>
-								<input class='check' type='checkbox'>
+								<input class='check' name="{{$one->id}}" type='checkbox'>
 							</div>
 							<br style='clear:both' />
-					</div>
-					@endforeach
+						</div>
+						@endforeach
+						<br />
+						<div class="col-md-9">
+							<div class="form-group email-left">
+								<label class="sr-only" for="exampleInputEmail3" >Email address</label>
+								<input type="email" value="{{Auth::user()->email}}" name="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
+							</div>
+						</div>
+						<div class="col-md-3">
+							<button type="submit" class="btn btn-default button-right">Subscribe</button>
+						</div>
+					</form>
                 </div>
             </div>
         </div>
