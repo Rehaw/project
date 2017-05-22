@@ -18,7 +18,8 @@
 						<div class='line'>
 							<div class='line_name'>{{$one->name}}</div>
 							<div class='line_check'>
-								<input class='check' name="{{$one->id}}" type='checkbox'>
+								<input class='check' name="{{$one->id}}" type='checkbox'
+								{{(isset($arr[$one->id]))?'checked':''}} />
 							</div>
 							<br style='clear:both' />
 						</div>
@@ -27,7 +28,7 @@
 						<div class="col-md-9">
 							<div class="form-group email-left">
 								<label class="sr-only" for="exampleInputEmail3" >Email address</label>
-								<input type="email" value="{{Auth::user()->email}}" name="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
+								<input type="email" value="{{$subs->email}}" name="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
 							</div>
 						</div>
 						<div class="col-md-3">

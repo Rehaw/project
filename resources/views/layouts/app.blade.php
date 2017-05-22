@@ -38,8 +38,11 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        {{ config('app.name', 'Main') }}
                     </a>
+					<a class="navbar-brand" href="{{ url('/catalogs') }}">
+						{{ config('app.catalog', 'Catalogs') }}
+					</a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">

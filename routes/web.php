@@ -11,11 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 Route::post('/home/subscribe', 'HomeController@postSubscribe');
+Route::get('/', 'BaseController@getIndex');
+Route::get('/catalogs', 'TovarsController@getCatalogs');
+Route::get('/catalog/{id}', 'TovarsController@getCatalog');
+Route::get('/{id}', 'TovarsController@getIndex');
